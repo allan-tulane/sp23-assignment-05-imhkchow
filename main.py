@@ -34,6 +34,12 @@ def test_reachable():
 
 def connected(graph):
     ### TODO
+    graphkeylist = list(graph.keys())
+    startnode = graphkeylist[0]
+    
+    reachablenode = reachable(graph, startnode)
+    return len(reachablenode) == len(graph)
+
     pass
 
 def test_connected():
@@ -50,6 +56,22 @@ def n_components(graph):
       the number of connected components in an undirected graph
     """
     ### TODO
+    components = 0
+    visited_nodes = set()
+    
+    for startnode in graph:
+        if startnode not in visited_nodes:
+            queue = [startnode]
+            while queue:
+                node = queue.pop(0)
+                visited_nodes.add(node)
+                for neighbor in graph[node]:
+                    if neighbor not in visited_nodes
+                    queue.append(neighbor)
+            components +=1
+    return components
+        
+    
     pass
 
 def test_n_components():
